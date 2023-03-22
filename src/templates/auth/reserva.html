@@ -1,0 +1,109 @@
+{% extends './base.html'%}
+
+{% block title %} Inicio | Reservar {% endblock %}
+
+{% block body %}
+<!-- Encabezado -->
+<header class="container-fluid bg-success d-flex justify-content-center">
+    <p class="text-light mb-0 p-2 fs-6">Contactenos de Lunes a Viernes 10:00am a 18:00pm (+56950972727) | Sabados, Domingos y Festivos de 10:30am a 18:00pm (+56982595691) </p>
+</header>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg bg-white p-3" id="menu">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">
+            <img src="../../static/img/porloskiltros.png"  style="width: 65px; height: 60px;">
+            <span class="text-success fs-6 fw-bold">Por los Kiltros</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link fs-6" aria-current="page" href="/home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6" href="/#servicios">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6" href="/#equipo">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6" href="/#local">Encuentranos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6" href="/galeria">Galeria</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6 btn btn-primary text-white" href="/reserva">Reserva tu Hora</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="mb-5">
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for messages in messages %}
+<div class="alert alert-success alert-dismissible" role="alert">
+    <strong>{{messages}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <strong>El horario de su reserva sera confirmado luego de ser realizada</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<main class="reservar">
+    <form class="container-fluid input-group mb-3" action="/reservar" method="POST" netlify>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> 
+        <div class="add">
+            <span class="fs-4">Información del cliente</span>
+            <div class="input-group input-group-sm mb-3 mt-3">
+                <span class="input-group-text">Servicio</span>
+                <input type="text" class="form-control" name="servicio" placeholder="Servicio">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Fecha</span>
+                <input type="date" class="form-control" name="fecha">
+                <span class="input-group-text">Hora</span>
+                <select name="hora" class="form-control">
+                    <option selected> --:--</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:30">12:30</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:30">17:30</option>
+                </select>
+                <span class="input-group-text">Tutor</span>
+                <input type="text" class="form-control" name="tutor" placeholder="Nombre">
+                <input type="text" class="form-control" name="apellido" placeholder="ApellidoP">
+            </div>
+            <hr>
+            <span class="fs-4">Información del contacto</span>
+            <div class="input-group input-group-sm mb-3 mt-3">
+                <span class="input-group-text">Email</span>
+                <input type="text" class="form-control" name="email" placeholder="example@gmail.com">
+                <span class="input-group-text">Telefono movil</span>
+                <input type="text" class="form-control" name="telefono" placeholder="+569 ---- ----">
+            </div>
+            <hr>
+            <span class="fs-4">Información de atención</span>
+            <div class="input-group input-group-sm mb-3 mt-3">
+                <span class="input-group-text">Especie</span>
+                <input type="text" class="form-control" name="especie" placeholder="Especie">
+                <span class="input-group-text">Paciente</span>
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre mascota">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <button type="submit" class="btn btn-success btn-sm w-100 boton">Reservar</button>
+            </div>
+        </div>
+    </form>
+</main>
+{% endblock %}

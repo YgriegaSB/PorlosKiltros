@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/*----- Header -----*/
+header p {
+  text-align: center;
+}
+/*------Menu------*/
+#menu li > a {
+  font-size: 18px;
+  color: #3f3f3f;
+}
+/*------slider------*/
+.carousel-inner {
+  max-height: 39rem;
+}
+/* Media Querys Pantalla */
+@media (max-width:768px) {
+  #intro, #equipo {
+    width: 90% !important;
+  }
+  #equipo p {
+    display: none;
+  }
+  .servicio-fila {
+    width: 100% !important;
+    text-align: center;
+  }
+}
+
+/* Media Querys Pantalla extra-sm */
+@media(max-width: 576px) {
+  .icono-wrap {
+    flex-wrap: wrap;
+    justify-content: center !important;
+  }
+}
+
+/* Mapa */
+.mapa {
+  width: 100%;
+  height: 500px;
+}
+
+#local {
+  background: #f3f3f3;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 50%;
+  margin-left: 100px;
+  padding-top: 150px;
+}
+
+/* Section Maipú */
+#numeros-local div {
+  padding: 0 20px 0 0;
+  height: 48px;
+}
+
+#numeros-local div:not(:last-child){
+  border-right: 2px solid #3f3f3f;
+}
+
+#numeros-local div:not(:first-child){
+  padding-left: 20px;
+}
+
+#numeros-local p {
+  margin: 0;
+}
+/* Media Queries patalla ancha */
+@media(max-width:1200px) {
+  #local {
+    flex-wrap: wrap;
+
+    padding-top: 30px;
+  }
+
+  .wrapper {
+    width: 90%;
+    margin: auto;
+    padding-top: 50px;
+  }
+}
+
+footer {
+  background: #198754;
+  min-height: 100px;
+}
+
+footer p {
+  color: #f3f3f3;
+  text-align: center;
+}
+
+#iconos .icono {
+  padding: 0;
+  color: #f3f3f3;
+}
+
+/* Galeria de imagenes */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 150px;
+  padding: 20px;
+  grid-gap: 10px;
+}
+.gallery__item {
+  position: relative;
+}
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover ;
+}
+.gallery__title {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  background: linear-gradient(rgba(255,255,255,0),rgba(25, 135, 84,0.6));
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+}
+.gallery__item:nth-child(4) {
+  grid-column-start: span 2;
+}
+.gallery__item:nth-child(5) {
+  grid-row-start: span 2;
+}
+.gallery__item:nth-child(9) {
+  grid-column-start: span 2;
+}
+
+@media (min-width:768px) {
+  .gallery-container {
+    grid-template-columns: repeat(4, 1fr);
+    width: 90%;
+    margin: auto;
+  }
+  .gallery__item:nth-child(1) {
+    grid-column-start: span 2;
+    grid-row-start: span 2;
+  }
+  .gallery__item:nth-child(4) {
+    grid-column-start: span 3;
+    grid-row-start: span 3;
+  }
+}
+
+/* Reservas */
+.contenedores {
+  width: 45%;
+  border-radius: 10px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px
+}
+
+/* BTN WHATSAPP */
+.btn-wsp{
+  position:fixed;
+  width:60px;
+  height:60px;
+  line-height: 6px;
+  bottom:25px;
+  right:25px;
+  background:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:35px;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+  z-index:100;
+  transition: all 300ms ease;
+}
+.btn-wsp:hover{
+  text-decoration: none;
+  color: #fff;
+  background: #20ba5a;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+  .btn-wsp{
+      width:63px;
+      height:63px;
+      line-height: 66px;
+}
+}
+
+.reservar {
+  padding-left: 25%;
+  margin-top: 20px;
+}
